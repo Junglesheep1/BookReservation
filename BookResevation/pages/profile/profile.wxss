@@ -1,0 +1,180 @@
+.container {
+  min-height: 100vh;
+  background: #F8F8F8;
+  padding: 16px;
+  padding-top: 88px;
+}
+
+/* 导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.back-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-right: 16px;
+  background: #F0F0F0;
+}
+
+.user-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.user-id {
+  font-size: 14px;
+  color: #999999;
+}
+
+/* 菜单列表 */
+.menu-list {
+  margin-bottom: 16px;
+}
+
+.menu-group {
+  background: #FFFFFF;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.menu-text {
+  font-size: 16px;
+  color: #333333;
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.3;
+}
+
+/* 二维码卡片 */
+.qr-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.qr-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-code {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 12px;
+  background: #F8F8F8;
+  border-radius: 8px;
+}
+
+.qr-tip {
+  font-size: 14px;
+  color: #999999;
+  margin-bottom: 16px;
+}
+
+.save-button {
+  width: 100% !important;
+  height: 44px;
+  line-height: 44px;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 22px;
+  border: none;
+}
+
+.save-button:active {
+  opacity: 0.8;
+} 

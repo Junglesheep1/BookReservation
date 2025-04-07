@@ -1,0 +1,148 @@
+.container {
+  min-height: 100vh;
+  background: #F8F8F8;
+  padding: 16px;
+  padding-top: 88px;
+}
+
+/* 导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.back-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+/* 金额输入 */
+.amount-card {
+  margin-bottom: 16px;
+}
+
+.amount-input-container {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.currency {
+  margin-right: 8px;
+  color: #333333;
+}
+
+.amount-input {
+  flex: 1;
+  font-size: 32px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 支付方式 */
+.method-card {
+  margin-bottom: 24px;
+}
+
+.method-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 8px;
+  background: #F8F8F8;
+}
+
+.method-item.active {
+  background: #F0F7FF;
+}
+
+.method-left {
+  display: flex;
+  align-items: center;
+}
+
+.method-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.method-name {
+  font-size: 16px;
+  color: #333333;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* 支付按钮 */
+.action-area {
+  margin-top: 32px;
+}
+
+.payment-button {
+  width: 100% !important;
+  height: 48px;
+  line-height: 48px;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 24px;
+  border: none;
+}
+
+.payment-button.disabled {
+  background: #CCCCCC;
+  color: #FFFFFF;
+} 

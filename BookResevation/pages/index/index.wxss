@@ -1,0 +1,271 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  background: #F8F8F8;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.logo {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.content {
+  padding: 20rpx 0;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.create-btn {
+  width: 100% !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+}
+
+.order-list {
+  min-height: 200rpx;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 40rpx 0;
+}
+
+.order-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.order-id {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.order-amount {
+  font-size: 32rpx;
+  color: #f56c6c;
+  font-weight: bold;
+}
+
+.order-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.nav-bar {
+  background: #FFFFFF;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.main-content {
+  padding-bottom: 32px;
+}
+
+.slogan-card {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.slogan-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.slogan-subtitle {
+  font-size: 14px;
+  color: #999999;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+}
+
+.feature-text {
+  font-size: 14px;
+  color: #333333;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.action-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+}
+
+.action-text {
+  font-size: 14px;
+  color: #333333;
+}
+
+.recent-transactions {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-type {
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.transaction-time {
+  font-size: 12px;
+  color: #999999;
+}
+
+.transaction-amount {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.transaction-amount.positive {
+  color: #4CAF50;
+}
+
+.transaction-amount.negative {
+  color: #F44336;
+}

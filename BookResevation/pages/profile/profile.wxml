@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 顶部导航栏 - 带返回按钮 -->
+  <view class="nav-bar">
+    <view class="back-button" bindtap="goBack">
+      <image class="back-icon" src="/images/arrow-left.svg"></image>
+    </view>
+    <view class="nav-title">个人中心</view>
+  </view>
+
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.svg'}}" mode="aspectFill"></image>
+      <view class="user-details">
+        <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
+        <text class="user-id">ID: {{userInfo.userId || '---'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 菜单列表 -->
+  <view class="menu-list">
+    <view class="menu-group">
+      <view class="menu-item" bindtap="navigateTo" data-page="orders">
+        <view class="menu-item-left">
+          <image class="menu-icon" src="/images/order.svg"></image>
+          <text class="menu-text">我的订单</text>
+        </view>
+        <image class="arrow-icon" src="/images/arrow-right.svg"></image>
+      </view>
+      <view class="menu-item" bindtap="navigateTo" data-page="transactions">
+        <view class="menu-item-left">
+          <image class="menu-icon" src="/images/transaction.svg"></image>
+          <text class="menu-text">交易记录</text>
+        </view>
+        <image class="arrow-icon" src="/images/arrow-right.svg"></image>
+      </view>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item" bindtap="navigateTo" data-page="address">
+        <view class="menu-item-left">
+          <image class="menu-icon" src="/images/address.svg"></image>
+          <text class="menu-text">收货地址</text>
+        </view>
+        <image class="arrow-icon" src="/images/arrow-right.svg"></image>
+      </view>
+      <view class="menu-item" bindtap="navigateTo" data-page="settings">
+        <view class="menu-item-left">
+          <image class="menu-icon" src="/images/settings.svg"></image>
+          <text class="menu-text">设置</text>
+        </view>
+        <image class="arrow-icon" src="/images/arrow-right.svg"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 二维码卡片 -->
+  <view class="qr-card">
+    <view class="qr-title">我的二维码</view>
+    <view class="qr-container">
+      <image class="qr-code" src="{{qrCodeUrl || '/images/qr-placeholder.svg'}}" mode="aspectFit"></image>
+      <text class="qr-tip">用于线下交易</text>
+      <button class="save-button" bindtap="saveQRCode">保存二维码</button>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        .nav-bar {
+            background: #FFFFFF;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .back-button:active {
+            opacity: 0.7;
+        }
+
+        .nav-title {
+            font-size: 18px;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+        }
+
+        .main-content {
+            margin-top: 60px;
+            padding: 16px;
+        }
+
+        .order-tabs {
+            display: flex;
+            background: #FFFFFF;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+            color: #888888;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .tab.active {
+            background: #000000;
+            color: #FFFFFF;
+        }
+
+        .order-list {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .order-item {
+            padding: 16px;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .order-number {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .order-status {
+            font-size: 14px;
+            color: #4CAF50;
+        }
+
+        .order-info {
+            margin-bottom: 12px;
+        }
+
+        .order-amount {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .order-time {
+            font-size: 12px;
+            color: #888888;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .primary-button {
+            background: #000000;
+            color: #FFFFFF;
+        }
+
+        .secondary-button {
+            background: #FFFFFF;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+
+        .qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-modal.active {
+            display: flex;
+        }
+
+        .qr-content {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 24px;
+            width: 90%;
+            max-width: 320px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .close-button:hover {
+            opacity: 1;
+        }
+
+        .close-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 16px;
+            background: #F5F5F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .qr-code-tip {
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .save-button {
+            background: #000000;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .save-button:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="back-button" onclick="goBack()">←</div>
+        <div class="nav-title">订单管理</div>
+    </div>
+
+    <div class="main-content">
+        <div class="order-tabs">
+            <div class="tab active">全部订单</div>
+            <div class="tab">待支付</div>
+            <div class="tab">已完成</div>
+        </div>
+
+        <div class="order-list">
+            <div class="order-item">
+                <div class="order-header">
+                    <div class="order-number">订单号：202403200001</div>
+                    <div class="order-status">待支付</div>
+                </div>
+                <div class="order-info">
+                    <div class="order-amount">¥500.00</div>
+                    <div class="order-time">2024-03-20 14:30</div>
+                </div>
+                <div class="order-actions">
+                    <div class="action-button primary-button" onclick="showQRCode()">查看二维码</div>
+                    <div class="action-button secondary-button" onclick="cancelOrder()">取消订单</div>
+                </div>
+            </div>
+
+            <div class="order-item">
+                <div class="order-header">
+                    <div class="order-number">订单号：202403190002</div>
+                    <div class="order-status">已完成</div>
+                </div>
+                <div class="order-info">
+                    <div class="order-amount">¥500.00</div>
+                    <div class="order-time">2024-03-19 16:45</div>
+                </div>
+                <div class="order-actions">
+                    <div class="action-button primary-button" onclick="showQRCode()">查看二维码</div>
+                    <div class="action-button secondary-button" onclick="viewDetails()">查看详情</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="qr-modal" id="qrModal">
+        <div class="qr-content">
+            <div class="close-button" onclick="hideQRCode()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <div class="qr-code">
+                [二维码占位]
+            </div>
+            <div class="qr-code-tip">请出示此二维码给商家进行核销</div>
+            <button class="save-button" onclick="saveQRCode()">保存二维码</button>
+        </div>
+    </div>
+
+    <script>
+        function showQRCode() {
+            document.getElementById('qrModal').style.display = 'flex';
+        }
+
+        function hideQRCode() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+
+        function downloadQRCode() {
+            alert('二维码保存功能将在小程序中实现');
+        }
+
+        function cancelOrder() {
+            if(confirm('确定要取消该订单吗？')) {
+                alert('订单已取消');
+            }
+        }
+
+        function viewDetails() {
+            alert('订单详情功能将在小程序中实现');
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 

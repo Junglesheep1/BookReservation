@@ -1,0 +1,44 @@
+<view class="container">
+  <!-- 顶部导航栏 - 带返回按钮 -->
+  <view class="nav-bar">
+    <view class="back-button" bindtap="goBack">
+      <image class="back-icon" src="/images/arrow-left.svg"></image>
+    </view>
+    <view class="nav-title">定金支付</view>
+  </view>
+
+  <!-- 支付金额输入 -->
+  <view class="card amount-card">
+    <view class="card-title">支付金额</view>
+    <view class="amount-input-container">
+      <text class="currency">¥</text>
+      <input type="digit" value="{{amount}}" bindinput="onAmountInput" placeholder="0.00" class="amount-input" />
+    </view>
+  </view>
+
+  <!-- 支付方式选择 -->
+  <view class="card method-card">
+    <view class="card-title">支付方式</view>
+    <view class="method-list">
+      <view class="method-item {{selectedMethod === 'wechat' ? 'active' : ''}}" bindtap="selectMethod" data-method="wechat">
+        <view class="method-left">
+          <image class="method-icon" src="/images/wechat.svg"></image>
+          <text class="method-name">微信支付</text>
+        </view>
+        <image wx:if="{{selectedMethod === 'wechat'}}" class="check-icon" src="/images/check.svg"></image>
+      </view>
+      <view class="method-item {{selectedMethod === 'alipay' ? 'active' : ''}}" bindtap="selectMethod" data-method="alipay">
+        <view class="method-left">
+          <image class="method-icon" src="/images/alipay.svg"></image>
+          <text class="method-name">支付宝</text>
+        </view>
+        <image wx:if="{{selectedMethod === 'alipay'}}" class="check-icon" src="/images/check.svg"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付按钮 -->
+  <view class="action-area">
+    <button class="payment-button {{canPay ? '' : 'disabled'}}" bindtap="handlePayment">确认支付</button>
+  </view>
+</view> 

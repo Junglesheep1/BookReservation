@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- 顶部导航栏 - 带返回按钮 -->
+  <view class="nav-bar">
+    <view class="back-button" bindtap="goBack">
+      <image class="back-icon" src="/images/arrow-left.svg"></image>
+    </view>
+    <view class="nav-title">交易记录</view>
+  </view>
+
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" bindtap="switchFilter" data-filter="all">全部</view>
+    <view class="filter-item {{currentFilter === 'income' ? 'active' : ''}}" bindtap="switchFilter" data-filter="income">收入</view>
+    <view class="filter-item {{currentFilter === 'expense' ? 'active' : ''}}" bindtap="switchFilter" data-filter="expense">支出</view>
+  </view>
+
+  <!-- 交易列表 -->
+  <view class="transaction-list">
+    <block wx:for="{{transactions}}" wx:key="id">
+      <view class="transaction-group">
+        <view class="group-header">{{item.date}}</view>
+        <view class="transaction-item" wx:for="{{item.items}}" wx:key="id" wx:for-item="transaction">
+          <view class="transaction-info">
+            <view class="transaction-type">{{transaction.type}}</view>
+            <view class="transaction-time">{{transaction.time}}</view>
+          </view>
+          <view class="transaction-amount {{transaction.amount > 0 ? 'positive' : 'negative'}}">
+            {{transaction.amount > 0 ? '+' : ''}}{{transaction.amount}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="load-more" wx:if="{{hasMore}}" bindtap="loadMore">
+    <view class="load-more-text">加载更多</view>
+  </view>
+</view> 

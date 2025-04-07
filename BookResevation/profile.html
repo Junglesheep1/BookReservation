@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户中心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        .nav-bar {
+            background: #FFFFFF;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .back-button:active {
+            opacity: 0.7;
+        }
+
+        .nav-title {
+            font-size: 18px;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+        }
+
+        .main-content {
+            margin-top: 60px;
+            padding: 16px;
+        }
+
+        .user-card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            background: #F5F5F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .user-id {
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .menu-list {
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid #F5F5F5;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:active {
+            background: #F5F5F5;
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            color: #000000;
+        }
+
+        .menu-title {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        .menu-arrow {
+            width: 16px;
+            height: 16px;
+            color: #888888;
+        }
+
+        .qr-section {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 16px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 16px;
+            background: #F5F5F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .qr-tip {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 16px;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            background: #000000;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .action-button:active {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="back-button" onclick="navigateTo('home')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18L9 12l6-6"></path>
+            </svg>
+        </div>
+        <div class="nav-title">用户中心</div>
+    </div>
+
+    <div class="main-content">
+        <div class="user-card">
+            <div class="avatar">头像</div>
+            <div class="user-name">张三</div>
+            <div class="user-id">ID: 888888</div>
+        </div>
+
+        <div class="menu-list">
+            <div class="menu-item" onclick="navigateTo('orders')">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 8V21H3V8"></path>
+                    <path d="M1 3H23V8H1z"></path>
+                    <path d="M10 12H14"></path>
+                    <path d="M10 16H14"></path>
+                </svg>
+                <span class="menu-title">我的订单</span>
+                <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </div>
+
+            <div class="menu-item" onclick="navigateTo('address')">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span class="menu-title">收货地址</span>
+                <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </div>
+
+            <div class="menu-item" onclick="navigateTo('settings')">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span class="menu-title">设置</span>
+                <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-code">[我的二维码]</div>
+            <div class="qr-tip">这是我的身份二维码，可用于线下交易</div>
+            <div class="action-button" onclick="downloadQRCode()">保存二维码</div>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            switch(page) {
+                case 'orders':
+                    window.location.href = 'orders.html';
+                    break;
+                case 'address':
+                    alert('地址管理功能将在小程序中实现');
+                    break;
+                case 'settings':
+                    alert('设置功能将在小程序中实现');
+                    break;
+                case 'home':
+                    window.location.href = 'index.html';
+                    break;
+                default:
+                    alert('功能开发中...');
+            }
+        }
+
+        function downloadQRCode() {
+            alert('二维码保存功能将在小程序中实现');
+        }
+    </script>
+</body>
+</html> 

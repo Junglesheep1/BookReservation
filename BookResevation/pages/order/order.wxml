@@ -1,0 +1,29 @@
+<!--order.wxml-->
+<navigation-bar title="订单支付" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<view class="container">
+  <view class="order-info">
+    <view class="order-title">订单信息</view>
+    <view class="order-item">
+      <text class="label">订单编号：</text>
+      <text class="value">{{orderId}}</text>
+    </view>
+    <view class="order-item">
+      <text class="label">定金金额：</text>
+      <text class="value price">¥{{deposit}}</text>
+    </view>
+    <view class="order-item">
+      <text class="label">创建时间：</text>
+      <text class="value">{{createTime}}</text>
+    </view>
+  </view>
+
+  <view class="qrcode-section" wx:if="{{qrCodeUrl}}">
+    <view class="qrcode-title">订单二维码</view>
+    <image class="qrcode" src="{{qrCodeUrl}}" mode="aspectFit"></image>
+    <view class="qrcode-tip">请向商家出示此二维码完成支付</view>
+  </view>
+
+  <view class="payment-section">
+    <button class="pay-button" type="primary" bindtap="handlePayment">支付定金</button>
+  </view>
+</view> 
